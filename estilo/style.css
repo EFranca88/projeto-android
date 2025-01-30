@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Kaushan+Script&display=swap');
+
+@font-face {
+    font-family: idroid;
+    src: url(fontes/idroid.otf) format(opentype);
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+    Podemos declarar uma area com as variaveis globais e o nome dela é 
+    *** :root ***
+    todas as variaveis dentro de root valem para o site inteiro.
+    todas as variaveis em CSS deve começar com --nomeDaVariavel
+    para chamar a variavel, em um valor devemos colocar a declaração seguida de var(----nomeDaVariavel)
+    Exemplo: background-color: var(--cor5);
+
+*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
+:root{
+    --cor0: #ffffff;
+    --cor1: #C4EBD5;
+    --cor2: #84E1AD;
+    --cor3: #3CDB84;
+    --cor4: #2FA866;
+    --cor5: #1A5C38;
+    --cor6: #14452a;
+
+    --font-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --font-destaque: 'Bebas Neue', cursive;
+    --font-android: idroid, cursive;
+
+
+    /* --cor3 superior do degrade header */
+    /* --cor5 inferior do degrade header, h1 */
+    /* --cor1 degrade h2 */
+    /* --cor2 background body */
+    /* --cor5 background video */
+    /* --cor4 background h1 do "Quer aprender mais?" */
+    /* --cor1 background "Quer aprender mais?" */
+    /* --cor5 color das tags span */
+    /* deixar main com width 805px */
+}
+
+body {
+    background-color: var(--cor2);
+    font-family: var(--font-padrao);
+    margin: 0px;
+}
+p {
+    margin: 15px 0px;
+    font-family: var(--font-padrao);
+    
+    text-align: justify;
+    text-indent: 30px;
+}
+strong {
+    color: var(--cor5);    
+}
+
+a {
+    font-weight: bolder;
+    text-decoration: none;
+    color: var(--cor5);
+    
+}
+a:hover {
+    text-decoration: underline;
+}
+a.externo::after {
+    content: '\1F517';/* imagem de link encontrada em https://emojipedia.org/ */
+}
+
+/**************************************************/
+/******************* Cabeçalho ********************/
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    color: var(--cor0);
+    padding: 35px 0px 10px 20px;
+    box-shadow: 2px 0px 7px 2px rgba(0, 0, 0, 0.4);    
+    text-align: center;
+}
+header > h1 {
+    text-align: center;
+    font-family: var(--font-destaque);
+    font-weight: normal;
+}
+header > p {
+    text-align: center;
+    font-family: var(--font-padrao);
+    max-width: 450px;
+    padding: 20px 0px 30px 0px;
+    margin: auto;
+    text-shadow: 2px 0px 7px 2px rgba(0, 0, 0, 0.4);
+    color: white;
+    font-weight: normal;
+}
+nav {
+    text-align: left;
+}
+nav > a {
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 15px 8px 15px;
+    color: var(--cor0);
+    font-weight: bolder;
+    max-width: 12px;
+    border-radius: 5px;
+    transition-duration: .7s;
+}
+nav > a:hover {
+    /* background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); */
+    background-color: var(--cor3);
+    color: var(--cor6);
+}
+
+/**************************************************/
+/*************** Conteudo Principal ***************/
+main {
+    background-color: var(--cor0);
+    max-width: 800px;
+    min-width: 280;
+    padding: 10px;
+    margin: 0px auto 15px auto;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.4);
+}
+main img.pequena{
+    display: block;
+    margin: auto;
+    max-width: 350px; /* pode ser utilizado para que a imagem não fique maior do que o valor definido (recomendado utilizar o tamanho da imagem em pixels se muito pequena) o valor informado no exemplo é o tamanho real da imagem */
+}
+article > h1 {
+    color: var(--cor5);
+    font-family: var(--font-android);
+    font-size: 1.8em;
+    padding: 15px 0px 1px 0px;
+    
+}
+article > h2 {
+    background-image: linear-gradient(to right, var(--cor1), var(--cor0));
+    color: var(--cor5);
+    font-family: var(--font-android);
+    font-size: 1.3em;
+    padding-left: 7px;
+    margin-top: 7px;
+}
+img {
+    width: 100%;
+}
+aside.videoAndroid {
+    background-color: #1A5C38;
+    margin: 0px -10px 30px -10px;
+    padding: 20px;
+    /* Para alterar as informações das bordas do video */
+    padding-bottom: 55.3%;
+    position: relative;
+}
+aside.videoAndroid > iframe {
+    /* Para alterar as informações de tamaho da caixa de video dentro da tag aside */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+aside.asidelearn {
+    background-color: var(--cor1);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
+}
+aside.asidelearn > h1 {
+    background-color: var(--cor4);
+    color: var(--cor0);
+    padding: 5px 10px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 10px;   
+}
+
+aside.asidelearn > p {
+    padding: 5px 20px 15px 20px;
+    margin: 0px;
+}
+ul {
+    column-count: 2;
+    column-gap: 20px;
+    padding: 0px 50px 10px 50px;
+}
+li::before {
+    content: "✔ ";
+}
+
+/**************************************************/
+/********************* Rodapé *********************/
+footer{
+    background-color: var(--cor5);
+    text-align: center;
+    color: var(--cor0);
+    padding: 10px;
+}
+footer > a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: var(--cor0);
+}
+footer > strong {
+    color: var(--cor0);
+}
